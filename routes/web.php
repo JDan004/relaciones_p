@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Phone;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -21,5 +22,16 @@ Route::get('prueba', function () {
     /* $user = User::find(4);
     return $user->phone; */
 
-    
+    /* Post::create([
+        'title' => 'Tercer post',
+        'content' => 'Contenido del tercer post'
+    ]); */
+
+    $post = Post::find(3);
+
+    $post->comments()->create([
+        'content' => 'Contenido del primer comentario'
+    ]);
+
+
 });
